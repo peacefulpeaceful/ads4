@@ -4,26 +4,21 @@ public class Experiment {
         System.out.println("Graph size: " + g.getVertexCount() + " vertices");
         System.out.println("Edges: " + g.getEdgeCount());
 
-        long startBfs = System.nanoTime();
-
         if (g.getVertexCount() == 10) {
             g.bfs(0);
-        } else {
-            g.bfsWithoutPrint(0);
+            g.dfs(0);
         }
 
+        long startBfs = System.nanoTime();
+        g.bfsWithoutPrint(0);
         long endBfs = System.nanoTime();
+
         long bfsTime = endBfs - startBfs;
 
         long startDfs = System.nanoTime();
-
-        if (g.getVertexCount() == 10) {
-            g.dfs(0);
-        } else {
-            g.dfsWithoutPrint(0);
-        }
-
+        g.dfsWithoutPrint(0);
         long endDfs = System.nanoTime();
+
         long dfsTime = endDfs - startDfs;
 
         System.out.println("BFS time: " + bfsTime + " ns");
